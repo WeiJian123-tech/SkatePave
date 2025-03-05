@@ -4,9 +4,9 @@ npm-debug.log
 yarn-error.log
 
 # Build output
-build/
-dist/
+.next/
 out/
+dist/
 
 # Environment variables
 .env
@@ -32,19 +32,9 @@ Thumbs.db
 *.sublime-workspace
 *.sublime-project
 
-# React Native
-.expo/
-.expo-shared/
-
-# Temporary files
-tmp/
-temp/
-
-# Miscellaneous
-*.tgz
-*.zip
-*.tar
-*.rar
+# Tailwind CSS
+tailwind.config.js
+postcss.config.js
 
 # TypeScript specific
 *.tsbuildinfo
@@ -56,3 +46,9 @@ temp/
 
 # Ignore test output
 test-results/
+
+# Miscellaneous
+*.tgz
+*.zip
+*.tar
+*.rar
