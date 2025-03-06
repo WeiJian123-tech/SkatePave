@@ -13,18 +13,32 @@ runs:
         node-version: '22'
         #node-version-file: ".nvmrc"
 
-    - name: Cache dependencies
-      id: cache_dependencies
+    - name: Cache frontend dependencies
+      id: cache_frontend
       uses: actions/cache@v3.4.3
       with:
         # A list of files, directories, and wildcard patterns to cache and restore
-        path: node_modules
+        path: frontend/node_modules
         # An explicit key for restoring and saving the cache
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-frontend-${{ hashFiles('frontend/package-lock.json') }}
         restore-keys: |
-          ${{ runner.os }}-node-
+          ${{ runner.os }}-frontend-
 
-    - name: Install dependencies
+    - name: Install frontend dependencies
       shell: bash
-      if: steps.cache_dependencies.outputs.cache-hit != 'true'
-      run: npm ci
+      run: npm ci --prefix frontend
+
+    - name: Cache backend dependencies
+      id: cache_backend
+      uses: actions/cache@v3.4.3
+      with:
+        # A list of files, directories, and wildcard patterns to cache and restore
+        path: backend/node_modules
+        # An explicit key for restoring and saving the cache
+        key: ${{ runner.os }}-backend-${{ hashFiles('backend/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-backend-
+
+    - name: Install backend dependencies
+      shell: bash
+      run: npm ci --prefix backend
