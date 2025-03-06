@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   /* Generate static page: https://nextjs.org/docs/pages/building-your-application/deploying/static-exports */
   output: 'export',
   trailingSlash: true,
-  basePath: '/SkatePave/',
+  basePath: '/SkatePave',
   assetPrefix: process.env.NODE_ENV === 'production' ? '/SkatePave/' : '',
 };
 
