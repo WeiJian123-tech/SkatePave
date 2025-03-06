@@ -1,0 +1,27 @@
+# Thank you to Matéu.sh for his article and GitHub repository about GitHub Workflows.
+# Article: https://www.freecodecamp.org/news/how-to-deploy-next-js-app-to-github-pages/
+# GitHub Repository: https://github.com/mateuszsokola/2048-in-react.git
+# Changed names from original repository
+name: predeploy
+description: "Sets up Node.js, installs and caches dependencies"
+runs:
+  using: "composite"
+  steps: 
+    - name: Setup Node.js
+      uses: actions/setup-node@v4.2.0
+      with: 
+        node-version-file: ".nvmrc:
+
+    - name: Cache dependencies
+      id: cache_dependencies
+      uses: actions/cache@v3.4.3
+      with:
+        # A list of files, directories, and wildcard patterns to cache and restore
+        path: node_modules
+        # An explicit key for restoring and saving the cache
+        key: node-modules-${{ hashFiles('package-lock.json') }}
+
+    - name: Install dependencies
+      shell: bash
+      if: steps.cache_dependencies.outputs.cache-hit != 'true'
+      run: npm ci
