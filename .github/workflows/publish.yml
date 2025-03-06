@@ -1,0 +1,55 @@
+# Thank you to Matéu.sh for his article and GitHub repository about GitHub Workflows.
+# Article: https://www.freecodecamp.org/news/how-to-deploy-next-js-app-to-github-pages/
+# GitHub Repository: https://github.com/mateuszsokola/2048-in-react.git
+# Changed names and version numbers from original repository.
+name: publish-to-github-pages
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  content: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Predeploy
+        uses: ./.github/workflows/predelpoy.yml
+
+      - name: Setup pages
+        uses: actions/configure-pages@v5.0.0
+        with:
+          static_site_generator: next
+
+      - name: Build with Next.js
+        run: npx next build
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.1
+        with:
+          path: ./out
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4.0.5

@@ -1,15 +1,15 @@
 # Thank you to Matéu.sh for his article and GitHub repository about GitHub Workflows.
 # Article: https://www.freecodecamp.org/news/how-to-deploy-next-js-app-to-github-pages/
 # GitHub Repository: https://github.com/mateuszsokola/2048-in-react.git
-# Changed names from original repository
+# Changed names and version numbers from original repository.
 name: predeploy
 description: "Sets up Node.js, installs and caches dependencies"
 runs:
   using: "composite"
-  steps: 
+  steps:
     - name: Setup Node.js
       uses: actions/setup-node@v4.2.0
-      with: 
+      with:
         node-version-file: ".nvmrc:
 
     - name: Cache dependencies
