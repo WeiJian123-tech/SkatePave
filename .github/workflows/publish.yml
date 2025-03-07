@@ -11,7 +11,12 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Change this to your default branch if it's not 'main'
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -51,6 +56,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4.0.5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./frontend/out  # Adjust this if your build output directory is different
           publish_branch: gh-pages  # The branch where you want to deploy your frontend
