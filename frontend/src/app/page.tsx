@@ -5,7 +5,7 @@ export default function Home() {
     <div className="bg-purple-500">
       <h1>Welcome to Next.js!</h1>
       <Image
-        src={`${process.env.NEXT_PUBLIC_BASE_URL}/next.svg`}
+        src="/next.svg"
         width={200}
         height={200}
         alt="Next.js logo"
