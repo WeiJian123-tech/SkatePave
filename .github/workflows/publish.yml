@@ -1,55 +1,56 @@
 # Thank you to Matéu.sh for his article and GitHub repository about GitHub Workflows.
 # Article: https://www.freecodecamp.org/news/how-to-deploy-next-js-app-to-github-pages/
 # GitHub Repository: https://github.com/mateuszsokola/2048-in-react.git
-# Changed names and version numbers from original repository.
-name: publish-to-github-pages
+# Modified code provided by Duck.ai's ChatGPT4o-mini
+
+#Prompt: User. (2025). I want to deploy a full stack web application to GitHub pages via GitHub actions... [Prompt to AI language model].
+#Response: OpenAI. (2025). To deploy a full-stack web application to GitHub Pages using GitHub Actions... [Response from AI language model].
+
+name: Deploy to GitHub Pages
+
 on:
   push:
     branches:
-      - main
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+      - main  # Change this to your default branch if it's not 'main'
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4.2.2
 
-      - name: Predeploy
-        uses: ./.github/workflows/setup-node
-
-      - name: Setup pages
-        uses: actions/configure-pages@v5.0.0
+      - name: Set up Node.js
+        uses: actions/setup-node@v4.2.0
         with:
-          static_site_generator: next
+          node-version: '22'  # Specify the Node.js version you want to use
 
-      - name: Build with Next.js
-        run: npx next build
-
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.6.1
+      - name: Cache Node.js modules
+        uses: actions/cache@v3.4.3
         with:
-          path: ./out
+          path: |
+            frontend/node_modules
+            backend/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm install
 
-    runs-on: ubuntu-latest
-    needs: build
+      - name: Build frontend
+        working-directory: ./frontend
+        run: npm run build
 
-    steps:
-      - name: Publish to GitHub Pages
-        id: deployment
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: npm install
+
+      - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4.0.5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./frontend/out  # Adjust this if your build output directory is different
+          publish_branch: gh-pages  # The branch where you want to deploy your frontend
