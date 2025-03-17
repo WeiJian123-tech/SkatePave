@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Overlay from "../../components/Overlay";
+import { getImagePath } from "../../utils/imagePath";
 
 export default function Home() {
 
@@ -36,14 +37,14 @@ export default function Home() {
 
         <div className="flex w-auto h-full">
           <a href="#">
-            <Image src={`${process.env.NODE_ENV === 'production' ? '/SkatePave' : ''}/SkatePaveLogoNH.png`} alt="logo" priority={true} width={128} height={128} className="w-auto h-full object-fill" />
+            <Image src={getImagePath('SkatePaveLogoNH.png')} alt="logo" priority={true} width={128} height={128} className="w-auto h-full object-fill" />
           </a>
         </div>
 
         <div className="flex items-center justify-stretch align-middle w-auto h-full">
 
           <Link href="#">
-            <Image src="/Profile_Picture_Placeholder.png" alt="Profile Picture" width={32} height={32} className="h-auto object-scale-down mx-1" />
+            <Image src={getImagePath('Proile_Picture_Placholder')} alt="Profile Picture" width={32} height={32} className="h-auto object-scale-down mx-1" />
           </Link>
 
           <button type="button" className="w-auto h-full">🛒</button>
