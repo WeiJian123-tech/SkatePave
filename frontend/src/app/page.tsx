@@ -44,7 +44,7 @@ export default function Home() {
         <div className="flex items-center justify-stretch align-middle w-auto h-full">
 
           <Link href="#">
-            <Image src={getImagePath('Proile_Picture_Placholder')} alt="Profile Picture" width={32} height={32} className="h-auto object-scale-down mx-1" />
+            <Image src={getImagePath('Proile_Picture_Placholder.png')} alt="Profile Picture" width={32} height={32} className="h-auto object-scale-down mx-1" />
           </Link>
 
           <button type="button" className="w-auto h-full">🛒</button>
