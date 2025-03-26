@@ -22,7 +22,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-slate-900 w-screen h-screen">
+    <div className="bg-slate-900 w-screen h-screen overflow-y-auto">
       <nav className="flex flex-col items-center w-full h-1/3 lg:h-1/6 border border-indigo-600">
 
         <div className="flex flex-row items-center justify-between w-full h-[18vh] lg:h-[16vh]">
@@ -41,7 +41,7 @@ export default function Home() {
 
 
           <div className="flex flex-row justify-center w-auto h-full">
-            <a href="#">
+            <a href="/">
               <Image src={getImagePath('SkatePaveLogoNH.png')} alt="logo" priority={true} width={128} height={128} className="w-auto h-full object-fill" />
             </a>
           </div>
@@ -66,12 +66,56 @@ export default function Home() {
 
       </nav>
 
-      <main className="flex flex-col items-center justify-center w-full h-1/2">
+      <main className="flex flex-col items-center justify-center w-full h-screen border-4 border-yellow-300">
 
-        <div>
-          <h1>Quality Skates</h1>
-          <h2>Fantastic Deals</h2>
-          <h3>* For Select Items</h3>
+        <div className="flex flex-col items-center justify-center w-full h-auto">
+          <h1 className="text-4xl/snug font-extrabold">Quality Skates</h1>
+          <h2 className="text-3xl/snug font-semibold">Fantastic Deals</h2>
+          <h3 className="text-xl/snug italic">* For Select Items</h3>
+        </div>
+
+        <div className="flex flex-col items-center justify-center w-full h-auto">
+          <div className="flex flex-row items-center justify-stretch w-full h-auto">
+            <div className="flex flex-col items-center justify-center w-1/3 h-auto px-2">
+              <div className="w-full h-auto">
+                <h3>
+                  Skateboards
+                </h3>
+                <h3>
+                  -20%
+                </h3>
+              </div>
+              <div className="w-full h-auto">
+                <Image src={getImagePath('skateboardFront.png')} alt="skateboard image" width={64} height={64} className="h-auto object-fill" />
+              </div>
+            </div>
+            <div className="flex flex-col items-center justify-center w-1/3 h-auto px-2">
+              <div className="w-full h-auto">
+                <h3>
+                  Roller Skates
+                </h3>
+                <h3>
+                  -15%
+                </h3>
+              </div>
+              <div className="w-full h-auto">
+                <Image src={getImagePath('skateboardFront.png')} alt="skateboard image" width={64} height={64} className="h-auto object-fill" />
+              </div>
+            </div>
+            <div className="flex flex-col items-center justify-center w-1/3 h-auto px-2">
+              <div className="w-full h-auto">
+                <h3>
+                  Bicycles
+                </h3>
+                <h3>
+                  -18%
+                </h3>
+              </div>
+              <div className="w-full h-auto">
+                <Image src={getImagePath('skateboardFront.png')} alt="skateboard image" width={64} height={64} className="h-auto object-fill" />
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
