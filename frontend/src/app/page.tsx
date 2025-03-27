@@ -41,9 +41,9 @@ export default function Home() {
 
 
           <div className="flex flex-row justify-center w-auto h-full">
-            <a href="/">
+            <Link href="/" prefetch={true}>
               <Image src={getImagePath('SkatePaveLogoNH.png')} alt="logo" priority={true} width={128} height={128} className="w-auto h-full object-fill" />
-            </a>
+            </Link>
           </div>
 
           <div className="flex flex-row items-center justify-end align-middle w-1/3 h-full m-0 p-0">
