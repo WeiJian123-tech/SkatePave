@@ -66,7 +66,7 @@ export default function Home() {
 
       </nav>
 
-      <main className="flex flex-col items-center justify-center w-full h-screen border-4 border-yellow-300">
+      <main className="flex flex-col items-center justify-center w-full p-4 border-4 border-yellow-300">
 
         <div className="flex flex-col items-center justify-center w-full h-auto">
           <h1 className="text-4xl/snug font-extrabold">Quality Skates</h1>
@@ -86,7 +86,7 @@ export default function Home() {
                 </h3>
               </div>
               <div className="w-full h-auto">
-                <Image src={getImagePath('skateboardFront.png')} alt="skateboard image" width={64} height={64} className="h-auto object-fill" />
+                <Image src={getImagePath('skateboardFront.png')} alt="skateboard image" width={128} height={128} className="h-auto object-fill" />
               </div>
             </div>
             <div className="flex flex-col items-center justify-center w-1/3 h-auto px-2">
@@ -99,7 +99,7 @@ export default function Home() {
                 </h3>
               </div>
               <div className="w-full h-auto">
-                <Image src={getImagePath('skateboardFront.png')} alt="skateboard image" width={64} height={64} className="h-auto object-fill" />
+                <Image src={getImagePath('RollerSkates.png')} alt="skateboard image" width={128} height={128} className="h-auto object-fill" />
               </div>
             </div>
             <div className="flex flex-col items-center justify-center w-1/3 h-auto px-2">
@@ -112,10 +112,19 @@ export default function Home() {
                 </h3>
               </div>
               <div className="w-full h-auto">
-                <Image src={getImagePath('skateboardFront.png')} alt="skateboard image" width={64} height={64} className="h-auto object-fill" />
+                <Image src={getImagePath('BycicleDiagonal.png')} alt="skateboard image" width={128} height={128} className="h-auto object-fill" />
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="flex flex-row items-center justify-center w-full text-center">
+          <h2>Save $7 dollars off these safety equipment!</h2>
+        </div>
+
+        <div className="flex flex-col items-center justify-center w-full text-center">
+          <h2>Find awesome animal-style skateboards!</h2>
+          <button type="button" className="p-2 rounded bg-yellow-700 text-slate-300">Explore</button>
         </div>
       </main>
 
