@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Overlay from "../../components/Overlay";
+import VertModal from "../../components/VertModal";
 import { getImagePath } from "../../utils/imagePath";
 
 export default function Home() {
@@ -36,7 +37,10 @@ export default function Home() {
               isVisible={isOverlayVisible}
               onClose={closeOverlay}
               buttonText={buttonText}
-            />
+            >
+              <h1>Hello</h1>
+              <p>This is children content</p>
+            </Overlay>
           </div>
 
 
@@ -75,52 +79,12 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col items-center justify-center w-full h-auto bg-amber-600">
-          <div className="flex flex-row items-center justify-stretch w-full h-auto">
-            <div className="flex flex-col items-center justify-center w-1/3 h-auto px-2">
-              <div className=" flex flex-col items-center justify-centerw-full h-auto">
-                <h3>
-                  Skateboards
-                </h3>
-                <h3>
-                  -20%
-                </h3>
-              </div>
-              <div className="flex items-center justify-center w-full h-auto">
-                <Image src={getImagePath('skateboardFront.png')} alt="skateboard image" width={128} height={128} className="h-auto object-fill" />
-              </div>
-            </div>
-            <div className="flex flex-col items-center justify-center w-1/3 h-auto px-2">
-              <div className="flex flex-col items-center justify-center w-full h-auto">
-                <h3>
-                  Roller Skates
-                </h3>
-                <h3>
-                  -15%
-                </h3>
-              </div>
-              <div className="flex items-center justify-center w-full h-auto">
-                <Image src={getImagePath('RollerSkates.png')} alt="skateboard image" width={128} height={128} className="h-auto object-fill" />
-              </div>
-            </div>
-            <div className="flex flex-col items-center justify-center w-1/3 h-auto px-2">
-              <div className="flex flex-col items-center justify-center w-full h-auto">
-                <h3>
-                  Bicycles
-                </h3>
-                <h3>
-                  -18%
-                </h3>
-              </div>
-              <div className="flex items-center justify-center w-full h-auto">
-                <Image src={getImagePath('BycicleDiagonal.png')} alt="skateboard image" width={128} height={128} className="h-auto object-fill" />
-              </div>
-            </div>
-          </div>
+          <VertModal />
         </div>
 
         <div className="flex flex-col items-center justify-center w-full text-center bg-green-700">
           <h2>Save $7 dollars off these safety equipment!</h2>
-          <Image src={getImagePath('ElbowKneePads.png')} alt="Saftey pad equipment" width={128} height={128} className="h-auto object-fill" />
+          <Image src={getImagePath('ElbowKneePads.png')} alt="Saftey pad equipment" width={128} height={128} className="w-2/5 h-auto object-scale-down" />
         </div>
 
         <div className="flex flex-col items-center justify-center w-full text-center bg-orange-800">
