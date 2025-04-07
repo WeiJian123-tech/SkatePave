@@ -30,7 +30,7 @@ export default function Home() {
 
           <div className="flex flex-row items-center justify-start w-1/6 h-[5rem]">
             {/* Button that opens an overlay modal. In this instance it displays shop categories and deals. */}
-            <button onClick={openOverlay} className="w-full h-full bg-blue-500 text-white rounded hover:bg-blue-400 active:bg-blue-400">
+            <button onClick={openOverlay} className="w-full h-full bg-blue-500 text-white rounded hover:bg-blue-400 active:bg-blue-400 lg:hidden">
               ☰
             </button>
             <Overlay
@@ -38,9 +38,23 @@ export default function Home() {
               onClose={closeOverlay}
               buttonText={buttonText}
             >
-              <h1>Hello</h1>
-              <p>This is children content</p>
+              <h1 className="font-bold text-5xl/loose">Categories</h1>
+              <div className="flex flex-col items-center justify-center my-10 text-2xl/relaxed underline">
+                <Link href="/login" className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Deals</Link>
+                <Link href="/" className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Skateboards</Link>
+                <Link href="/" className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Roller Skates</Link>
+                <Link href="/" className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Bicycles</Link>
+                <Link href="/" className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Equipment</Link>
+              </div>
             </Overlay>
+          </div>
+
+          <div className="hidden my-10 text-2xl/relaxed underline lg:flex flex-row items-center justify-center ">
+            <Link href="/login" className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Deals</Link>
+            <Link href="/" className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Skateboards</Link>
+            <Link href="/" className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Roller Skates</Link>
+            <Link href="/" className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Bicycles</Link>
+            <Link href="/" className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Equipment</Link>
           </div>
 
 
