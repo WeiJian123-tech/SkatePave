@@ -82,7 +82,7 @@ const Navmenu: React.FC = ({}) => {
 
       </nav>
     );
-}
+};
 
 export default Navmenu;
   
