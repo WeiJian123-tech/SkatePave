@@ -58,14 +58,14 @@ const Navmenu: React.FC = ({}) => {
 
           <div className="flex flex-row justify-center w-auto h-full mx-4">
             <Link href="/" prefetch={true}>
-              <Image src={getImagePath('SkatePaveLogoNH.png')} alt="logo" priority={true} width={128} height={128} className="w-auto h-full object-fill" />
+              <Image src={getImagePath('SkatePaveLogoNH.png')} alt="logo" priority={true} width={128} height={128} loading="eager" className="w-auto h-full object-fill" />
             </Link>
           </div>
 
           <div className="flex flex-row items-center justify-end align-middle w-1/3 h-full m-0 p-0">
 
             <Link href="/login">
-              <Image src={getImagePath('defaultPFP.png')} alt="Profile Picture" width={32} height={32} className="h-auto object-scale-down mx-1" />
+              <Image src={getImagePath('defaultPFP.png')} alt="Profile Picture" width={32} height={32} loading="eager" className="h-auto object-scale-down mx-1" />
             </Link>
 
             <button type="button" className="w-auto h-full text-3xl">🛒</button>

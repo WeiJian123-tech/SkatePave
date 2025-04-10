@@ -18,7 +18,7 @@ export default function Equipment() {
           </div>
 
           <div className="flex items-center justify-center-safe w-full h-auto">
-            <Image src={getImagePath('ElbowKneePads.png')} alt="Bicycle" width={128} height={128} className="w-full h-auto bg-slate-500" />
+            <Image src={getImagePath('ElbowKneePads.png')} alt="Bicycle" width={128} height={128} loading= "lazy" className="w-full h-auto bg-slate-500" />
           </div>
 
         </main>

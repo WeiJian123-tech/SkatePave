@@ -26,7 +26,7 @@ export default function Home() {
 
         <div className="flex flex-col items-center justify-center w-full text-center bg-green-700">
           <h2>Save $7 dollars off these safety equipment!</h2>
-          <Image src={getImagePath('ElbowKneePads.png')} alt="Saftey pad equipment" width={128} height={128} className="w-2/5 h-auto object-scale-down" />
+          <Image src={getImagePath('ElbowKneePads.png')} alt="Saftey pad equipment" width={128} height={128} loading= "lazy" className="w-2/5 h-auto object-scale-down" />
         </div>
 
         <div className="flex flex-col items-center justify-center w-full text-center bg-orange-800">

@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 
 import { getImagePath } from "../utils/imagePath";
+import Link from "next/link";
 
 const contentData = [
     {
@@ -37,13 +38,16 @@ const VertModal: React.FC = ({}) => {
                         </h3>
                     </div>
                     <div className="w-full h-auto">
-                        <Image
-                        src={getImagePath(item.imagePath)}
-                        alt={`Image for ${item.heading}`}
-                        width={128}
-                        height={128}
-                        className="w-full h-auto rounded-md"
-                        />
+                        <Link href="/SkatePave/frontend/src/app/deals/page.tsx" >
+                            <Image
+                            src={getImagePath(item.imagePath)}
+                            alt={`Image for ${item.heading}`}
+                            width={128}
+                            height={128}
+                            loading="eager"
+                            className="w-full h-auto rounded-md"
+                            />
+                        </Link>
                     </div>
                 </div>
             ))}
