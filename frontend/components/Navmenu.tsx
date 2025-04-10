@@ -19,11 +19,11 @@ const Navmenu: React.FC = ({}) => {
     function NavLinks() {
       return (
           <div className="flex flex-col items-center justify-center my-10 text-2xl/relaxed underline">
-          <Link href="/login" className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Deals</Link>
-          <Link href="/" className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Skateboards</Link>
-          <Link href="/" className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Roller Skates</Link>
-          <Link href="/" className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Bicycles</Link>
-          <Link href="/" className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Equipment</Link>
+            <Link href="/deals" prefetch={true} className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Deals</Link>
+            <Link href="/skateboards" prefetch={true} className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Skateboards</Link>
+            <Link href="/rollerskates" prefetch={true} className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Roller Skates</Link>
+            <Link href="/bicycles" prefetch={true} className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Bicycles</Link>
+            <Link href="/equipment" prefetch={true} className="px-1 py-2 hover:bg-green-700 hover:text-3xl/relaxed active:bg-green-600 active:font-semibold">Equipment</Link>
           </div>
       );
     }
